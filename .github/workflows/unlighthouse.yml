@@ -20,14 +20,14 @@ jobs:
         run: npm install -g @unlighthouse/cli puppeteer netlify-cli
 
       - name: Unlighthouse assertions and client
-        run: unlighthouse-ci --site https://uatesika.tiendabelcorp.com.pe/ --urls /,/red-power-perfume-de-mujer-50-ml/p --no-cache --mobile --throttle --build-static
+        run: unlighthouse-ci --site https://uatesika.tiendabelcorp.com.pe/ --no-cache --mobile --throttle --build-static
       - uses: actions/upload-artifact@v3
         with:
           name: unlighthouse
           path: .unlighthouse
 
-      # - name: Deploy
-      #   run: netlify deploy --dir=.unlighthouse --prod --message="New Release Deploy from GitHub Actions"
-      #   env:
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      - name: Deploy
+        run: netlify deploy --dir=.unlighthouse --prod --message="New Release Deploy from GitHub Actions"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_UAT_PE_OLD }}
