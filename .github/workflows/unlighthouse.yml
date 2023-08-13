@@ -20,7 +20,7 @@ jobs:
         run: npm install -g @unlighthouse/cli puppeteer netlify-cli
 
       - name: Unlighthouse assertions and client
-        run: unlighthouse-ci --site https://uatesika.tiendabelcorp.com.pe/ --urls /,/red-power-perfume-de-mujer-50-ml/p --no-cache --mobile --throttle --reporter jsonExpanded
+        run: unlighthouse-ci --site https://uatesika.tiendabelcorp.com.pe/ --urls /,/red-power-perfume-de-mujer-50-ml/p --no-cache --mobile --throttle --build-static
       - uses: actions/upload-artifact@v3
         with:
           name: unlighthouse
