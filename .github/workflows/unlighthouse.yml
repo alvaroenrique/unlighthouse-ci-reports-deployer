@@ -1,6 +1,11 @@
 name: Assertions and static report
 
 on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+    
   workflow_dispatch:
 
 jobs:
